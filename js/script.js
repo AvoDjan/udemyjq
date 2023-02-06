@@ -1,35 +1,59 @@
-// 72. Les bases de jQuery : Effets
+// 73. Les bases de jQuery : Animations
 
 $(function(){
 
-    $("#p1").click(function(){
-        $('#p2').hide(3000, function(){
-            $('#p3').hide(3000, function(){
-                $('#p4').hide(3000);
-            });
-        });
-    });
+    $("button").click(function(){
+        $("div").animate({
+            left:'600px',
+            opacity: 0.2,
+            width: '+=150px',
+            height: '+=150px'
+    }, 5000);
+        
+// Tout change en même temps
 
-//  Fait partir les paragraphes en cascade
+    });
 
 });
 
 
 $(function(){
 
+    $("button").click(function(){
+        $("div").animate({left: '600px'}, 3000);
+        $("div").animate({opacity: 0.2}, 3000);
+        $("div").animate({width: '200px'}, 3000);
+        $("div").animate({height: '200px'}, 3000);
 
-    $("#p1").click(function(){
-        $('#p5').fadeTo(3000, 0.5); /* (0.5 = l'opacité ) */
+        // Les changements se font les uns après les autres
     });
+
 });
 
-// Toggle = si c'est visible ça le rend invisible et si il est invisible ça le rend visible
 
-// FadeOut = ex : fadeOut(3000); ça prend 3 secondes pour que le P5 disparaisse
+$(function(){
 
-// FadeIn = ex : fadeIn(3000) permet de refaire apparaitre le P5 en 3 secondes. (Faut le faire disparaitre avant pour le faire apparaitre)
+    $("#start").click(function(){
+        $("div").animate({left: '600px'}, 3000);
+        $("div").animate({opacity: 0.2}, 3000);
+        $("div").animate({width: '200px'}, 3000);
+        $("div").animate({height: '200px'}, 3000);
+    });
 
-// FadeToggle = ex : fadeToggle(3000) rendre visible ou invisible en 3 secondes
+    $("#stop").click(function(){
+        $("div").stop(true);
 
-// fadeTo = ex : fadeTo(3000, 0.5) permets d'emmenerde à une opacité précise
+        // true permet d'arrêter toutes les animations
+        // .stop(true,true); = permet de même si on stop l'animation, elle va jusqu'à la fin de l'animation
+    });
 
+});
+
+
+$(function(){
+    
+    $("#start").click(function(){
+        $("div").slideUp(3000).slideDown(3000).fadeOut(3000).fadeIn(3000);
+    });
+    
+});

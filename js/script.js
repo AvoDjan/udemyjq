@@ -1,59 +1,77 @@
-// 73. Les bases de jQuery : Animations
-
-$(function(){
-
-    $("button").click(function(){
-        $("div").animate({
-            left:'600px',
-            opacity: 0.2,
-            width: '+=150px',
-            height: '+=150px'
-    }, 5000);
-        
-// Tout change en même temps
-
-    });
-
-});
+// 74. Les bases de jQuery : jQuery & HTML
 
 
-$(function(){
+ $(function(){
 
-    $("button").click(function(){
-        $("div").animate({left: '600px'}, 3000);
-        $("div").animate({opacity: 0.2}, 3000);
-        $("div").animate({width: '200px'}, 3000);
-        $("div").animate({height: '200px'}, 3000);
+    var myVar = $("#p1").html();
+    console.log(myVar);
 
-        // Les changements se font les uns après les autres
-    });
+// marque le code html
+    
+ });
 
-});
+
+
+
+ $(function(){
+
+     $("#start").click(function(){
+        var myVar = $("#myInput").val();
+        console.log(myVar);
+     });
+
+    // Marque ce qu'on a écrit dans le input 
+ });
 
 
 $(function(){
 
     $("#start").click(function(){
-        $("div").animate({left: '600px'}, 3000);
-        $("div").animate({opacity: 0.2}, 3000);
-        $("div").animate({width: '200px'}, 3000);
-        $("div").animate({height: '200px'}, 3000);
+        var myVar = $("div").attr("style");
+        console.log(myVar);
+        // background : red
+
+
+
+        // $("#p1").text("Voilà mon nouveau texte");
+
+            // remplace "mon paragraphe 1" par le text "voilà mon nouveau texte" faut appuyer sur start pour faire ça
+
+
+
+        // $("#myInput").val("Nouvelle valeur");
+            // change ce que j'écris en mettant "Nouvelle valeur" quand j'appuis sur start
+
+
+
+        // $("div").append("<p>Mon nouveau paragraphe</p>");
+            // Ajout "<p>Mon nouveau paragraphe</p>" dans le html sans y rentrer à l'intérieur (il se positionne à la fin)
+
+            
+
+        // $("div").prepend("<p>Mon nouveau paragraphe</p>");
+            // Ajout "<p>Mon nouveau paragraphe</p>" dans le html sans y rentrer à l'intérieur (il se positionne au début)
+
+
+
+        // $("div").after("<p>Mon nouveau paragraphe</p>");
+                // Ajout "<p>Mon nouveau paragraphe</p>" dans le html sans y rentrer à l'intérieur (il se positionne hors du background red en bas)
+
+
+
+        // $("div").before("<p>Mon nouveau paragraphe</p>");
+            // Ajout "<p>Mon nouveau paragraphe</p>" dans le html sans y rentrer à l'intérieur (il se positionne hors du background red en haut)
+
+
+
+        $("#p1").remove();
+            // Retire l'élément et son contenu du html quand tu appuis sur start
+
+
+
+        // $("div").empty();
+            // Vide tout ce qu'il y a sur la page (tout le html et le background red)
     });
 
-    $("#stop").click(function(){
-        $("div").stop(true);
 
-        // true permet d'arrêter toutes les animations
-        // .stop(true,true); = permet de même si on stop l'animation, elle va jusqu'à la fin de l'animation
-    });
-
-});
-
-
-$(function(){
-    
-    $("#start").click(function(){
-        $("div").slideUp(3000).slideDown(3000).fadeOut(3000).fadeIn(3000);
-    });
-    
 });

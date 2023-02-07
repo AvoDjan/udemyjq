@@ -1,35 +1,55 @@
-// 75. Les bases de jQuery : jQuery & CSS
+// 76. Les bases de jQuery : jQuery et l'arborescence des éléments
 
 
 
- $(function(){
+$(function(){
+    $("#start").click(function(){
 
-    $("#but1").click(function(){
-        $("#p1").addClass("red");
-            // permet que le p1 soit ajouté dans la classe .red (css)
+        $("#p1").css("border-color", "green");
 
-            // toggleClass : enlève ou remet la couleur rouge, ça dépend de comment il était
-
-
-
-    $("#p1").addClass("red bold");
-
-        // permet d'ajouter sur le P1 la classe red et bold (css)
+        // p1 sera en vert quand on appuie sur start
 
 
 
-});
+        $("#p1").parent().css("border-color", "blue");
+
+        // div 1 sera mit en bleu quand on appuie sur start
+
+
+
+        $("#p1").parents().css("border-color", "yellow");
+
+        // main et div1 seront mit en jaune quand on appuie sur start
+
+
+
+        $("#p1").parents(".special").css("border-color", "purple");
+
+        // main sera mit en violet quand on appuie sur start
 
 
 
 
-    $("#but2").click(function(){
-        $("#p1").removeClass("red");
+        $("#div1").children().css("border-color", "pink");
 
-        // retire la couleur rouge quand tu cliques sur le button 2
+        // les paragraphes 1,2 et 3 seront mis en rose quand on appuie sur start
+
+
+
+
+        $("#main").find("p").css("border-color", "orange");
+
+        // Tous les paragraphes seront en orange quand on appuie sur start
+
+
+
+
+        /* siblings = frère (ex : $("#p1").siblings().css("border-color", "green");) ... Paragraphe 2 et 3 seront en vert et pas le 1er.
+
+
+        $("#p1").next().css("border-color", "black"); = prend le frère suivant du p1 qui est le p2. */
+        
     });
-
-
 
 
 });
@@ -40,35 +60,43 @@
 
 $(function(){
 
-    $("#but1").click(function(){
+    $("#start").click(function(){
 
-        $("#p1").css({
-            "color": "red",
-            "font-weight": "bold",
-            "background": "yellow"
-        });
+        $("p").css("border-color", "pink");
 
-        // Change le code css via jQuery
+        // Tous les paragraphes seront en rose
+
+
+
+
+        $("p").first().css("border-color", "aqua");
+
+        // Le 1er p (first) sera écrit en aqua (marche aussi pour le dernier (last))
+
+
+
+
+        $("p").eq(2).css("border-color", "grey");
+
+        // Le paragraphe 3 sera écrit en gris quand on appuie sur start
+
+
+
+
+        $("p").filter(".special").css("border-color", "black");
+
+        // Tous les paragraphes qui ont la class "special" seront écrit en noir quand on appuie sur start (para : 1, 3 et 4)
+
+
+
+        $("p").not(".special").css("border-color", "burlywood");
+
+        // Tous les paragraphes qui n'ont pas la class "special" seront écrit en couleur burlywood quand on appuie sur start (para 2 et 5)
+
+
+
     });
 
 
-});
-
-
-
-
-
-
-$(function(){
-    $("#but1").click(function(){
-
-        console.log($("#but1").width());
-
-            // donne la largeur du button 1
-
-        $("#but2").width(150);
-
-            // change la largeur du button2
-    });
 
 });
